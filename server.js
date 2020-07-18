@@ -1,22 +1,16 @@
 // Import dependencies
-var express = require("express");
-var path = require("path");
+const express = require("express");
+const path = require("path");
 
 // Set up express app
-var app = express();
-var PORT = process.env.PORT || 8080;
+const app = express();
+const PORT = process.env.PORT || 8080;
 
 // Serve static files in public folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
-// HTML routes
-app.get("/notes", function(req, res) {
-  res.sendFile(path.join(__dirname, "public/notes.html"));
-});
-
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "public/index.html"));
-});
+// Add routing
+require(path.join(__dirname, "routes/htmlRoutes.js"))(app);
 
 // Start server
 app.listen(PORT, function() {

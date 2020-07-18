@@ -6,6 +6,9 @@ var path = require("path");
 var app = express();
 var PORT = process.env.PORT || 8080;
 
+// Serve static files in public folder
+app.use(express.static(path.join(__dirname, 'public')));
+
 // HTML routes
 app.get("/notes", function(req, res) {
   res.sendFile(path.join(__dirname, "public/notes.html"));

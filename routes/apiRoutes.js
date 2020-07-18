@@ -33,8 +33,14 @@ function addNote(notes, newNote) {
 // remove note matching id, editing notes in place
 function deleteNote(notes, id) {
     // for loop through notes
+    for (let i = 0; i < notes.length; i++) {
         // if id matches the note...
+        if (notes[i].id === id) {
             // remove note with splice and return
+            notes.splice(i, 1);
+            return;
+        }
+    }
 }
 
 // writes notes array to db.json

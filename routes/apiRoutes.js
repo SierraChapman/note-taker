@@ -40,6 +40,7 @@ module.exports = function(app) {
     // return JSON with all notes
     app.get("/api/notes", function(req, res) {
         // response with getNotes() output as JSON
+        res.json(getNotes());
     });
 
     // add note to notes array and return new note object

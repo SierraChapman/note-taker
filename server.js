@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 8080;
 app.use(express.static(path.join(__dirname, "public")));
 
 // Add routing
+require(path.join(__dirname, "routes/apiRoutes.js"))(app);
 require(path.join(__dirname, "routes/htmlRoutes.js"))(app);
 
 // Start server

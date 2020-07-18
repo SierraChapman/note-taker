@@ -7,7 +7,9 @@ const fs = require("fs");
 // read notes from db.json file and returns notes array
 function getNotes() {
     // read notes file with fs
+    const notesStr = fs.readFileSync(path.join(__dirname, "../db/db.json"), "utf8");
     // parse JSON and return array
+    return JSON.parse(notesStr);
 }
 
 // add id to newNote and add newNote to notes, editing both in place

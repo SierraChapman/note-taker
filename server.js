@@ -6,8 +6,12 @@ var path = require("path");
 var app = express();
 var PORT = process.env.PORT || 8080;
 
-// Route to home page
-app.get("/", function(req, res) {
+// HTML routes
+app.get("/notes", function(req, res) {
+  res.sendFile(path.join(__dirname, "public/notes.html"));
+});
+
+app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "public/index.html"));
 });
 

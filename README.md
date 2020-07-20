@@ -2,7 +2,7 @@
 
 ## Description
 
-This full-stack application allows the user to create, view, and delete notes. I implemented the backend code, which uses runs on Node.js and uses Express.js to listen and respond to http requests for the frontend code as well as API requests for creating, retrieving, and deleting notes. Notes are stored in a JSON file. The frontend was provided by Trinity Education Services.
+This full-stack application allows the user to create, view, and delete notes. I implemented the backend code, which runs on Node.js and uses Express.js to listen for and respond to http requests, including requests for the frontend code as well as API requests for creating, retrieving, and deleting notes. Notes are stored in a JSON file on the server. The frontend was provided by Trinity Education Services.
 
 ## Table of Contents
 
@@ -31,7 +31,7 @@ npm install
 ```
 ## Usage
 
-To view the live website, visit the [deployed link](https://note-taker-sc.herokuapp.com/). To run a local version of the website, download the repository, run `npm install` to install the required packages, and run `npm start` to start the server on your computer.
+To view the live website, visit the [deployed link](https://note-taker-sc.herokuapp.com/). To run a local version of the application, download the repository, run `npm install` to install the required packages, and run `npm start` to start the server on your computer.
 
 ## Demonstration
 
@@ -39,7 +39,7 @@ To view the live website, visit the [deployed link](https://note-taker-sc.heroku
 
 ## Code Snippets
 
-The Express.js library was used to program the server to respond to various http requests. For example, the following code tells the server to listen for a request to delete a note and delete it by calling the `getNotes`, `deleteNote`, and `saveNotes` functions that I defined.
+The Express.js library was used to program the server to respond to various http requests. For example, the following code tells the server to listen for a request to delete a note and deletes it by calling the `getNotes`, `deleteNote`, and `saveNotes` functions that I defined.
 
 ```javascript
 app.delete("/api/notes/:id", function(req, res) {

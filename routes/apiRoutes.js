@@ -14,8 +14,8 @@ function getNotes() {
 
 // add id to newNote and add newNote to notes, editing both in place
 function addNote(notes, newNote) {
-    // initialize maxId to -1
-    let maxId = -1;
+    // initialize maxId to 0
+    let maxId = 0;
     // for loop through notes
     for (let i = 0; i < notes.length; i++) {
         // if note's id is greater than maxId...
@@ -24,7 +24,7 @@ function addNote(notes, newNote) {
             maxId = notes[i].id;
         }
     }
-    // add an id of maxId + 1 to newNote
+    // add an id of maxId + 1 to newNote (so id is always a positive int and larger than all other id's)
     newNote.id = maxId + 1;
     // push newNote to notes
     notes.push(newNote);

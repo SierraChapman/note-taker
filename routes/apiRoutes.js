@@ -46,6 +46,7 @@ function deleteNote(notes, id) {
 // writes notes array to db.json
 function saveNotes(notes) {
     // save stringified notes to file with fs
+    fs.writeFileSync(path.join(__dirname, "../db/db.json"), JSON.stringify(notes), "utf8");
 }
 
 // Handle API requests

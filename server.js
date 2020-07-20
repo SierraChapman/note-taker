@@ -6,6 +6,9 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+// Parse data sent in POST requests
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 // Serve static files in public folder
 app.use(express.static(path.join(__dirname, "public")));
 

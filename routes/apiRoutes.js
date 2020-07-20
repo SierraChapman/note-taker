@@ -61,10 +61,15 @@ module.exports = function(app) {
     // add note to notes array and return new note object
     app.post("/api/notes", function(req, res) {
         // get newNote data from request
+        const newNote = req.body;
         // read notes file with getNotes()
+        const notes = getNotes();
         // pass notes and newNote to addNote()
+        addNote(notes, newNote);
         // save updated notes array with saveNotes()
+        saveNotes(notes);
         // response with newNote as JSON
+        res.json(newNote);
     });
 
     // delete note with matching id

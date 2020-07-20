@@ -75,9 +75,14 @@ module.exports = function(app) {
     // delete note with matching id
     app.delete("/api/notes/:id", function(req, res) {
         // store id variable
+        const id = parseInt(req.params.id);
         // read notes file with getNotes()
+        const notes = getNotes();
         // delete note with deleteNote()
+        deleteNote(notes, id);
         // save updated notes array with saveNotes()
+        saveNotes(notes);
         // end the request
+        res.end();
     });
 };

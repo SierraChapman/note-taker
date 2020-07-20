@@ -14,18 +14,13 @@ function getNotes() {
 
 // add id to newNote and add newNote to notes, editing both in place
 function addNote(notes, newNote) {
-    // initialize maxId to 0
-    let maxId = 0;
-    // for loop through notes
-    for (let i = 0; i < notes.length; i++) {
-        // if note's id is greater than maxId...
-        if (notes[i].id > maxId) {
-            // set maxId to note's id
-            maxId = notes[i].id;
-        }
+    if (notes) {
+        // the last note always has the highest id, so adding one guarantees a unique id
+        newNote.id = notes[notes.length - 1].id + 1;
+    } else {
+        // start with id of 1 if there are no notes so that ids are always truthy
+        newNote.id = 1;
     }
-    // add an id of maxId + 1 to newNote (so id is always a positive int and larger than all other id's)
-    newNote.id = maxId + 1;
     // push newNote to notes
     notes.push(newNote);
 }
